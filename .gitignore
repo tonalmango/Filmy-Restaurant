@@ -23,6 +23,10 @@
 # misc
 .DS_Store
 *.pem
+.vscode/
+.lighthouse-cache/
+lighthouse-*.report.json
+lighthouse-*.report.html
 
 # debug
 npm-debug.log*
