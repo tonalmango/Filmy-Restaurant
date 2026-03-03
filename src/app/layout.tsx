@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://filmyfood.com";
+const siteUrl = getSiteUrl();
 
 const inter = Inter({
   variable: "--font-inter",
