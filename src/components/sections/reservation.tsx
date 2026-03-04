@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { SectionTitle } from "@/components/ui/section-title";
 import { GlassCard } from "@/components/ui/glass-card";
 import { RippleButton } from "@/components/ui/ripple-button";
+import { buildWhatsAppUrl } from "@/lib/site-config";
 
 const ReservationCalendar = dynamic(
   () => import("@/components/sections/reservation-calendar").then((m) => m.ReservationCalendar),
@@ -39,6 +40,19 @@ export function ReservationSection() {
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
 
+    const selectedDate = date ? date.toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }) : "N/A";
+    const bookingMessage = [
+      "Hi Filmy Food, I'd like to reserve a table.",
+      `Name: ${name.trim()}`,
+      `Phone: ${phone.trim()}`,
+      `Date: ${selectedDate}`,
+      `Time: ${time}`,
+      `Guests: ${guests}`,
+    ].join("\n");
+
+    const requestUrl = buildWhatsAppUrl(bookingMessage);
+    window.open(requestUrl, "_blank", "noopener,noreferrer");
+
     setSuccess(true);
     setTimeout(() => setSuccess(false), 3000);
   };
@@ -64,6 +78,7 @@ export function ReservationSection() {
                 <label htmlFor="name" className="mb-2 block text-sm text-white/85">Full Name</label>
                 <input
                   id="name"
+                  autoComplete="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="w-full rounded-xl border border-white/20 bg-black/30 px-4 py-3 text-white outline-none ring-gold/30 focus:ring"
@@ -75,6 +90,10 @@ export function ReservationSection() {
                 <label htmlFor="phone" className="mb-2 block text-sm text-white/85">Phone</label>
                 <input
                   id="phone"
+                  type="tel"
+                  inputMode="numeric"
+                  autoComplete="tel"
+                  pattern="[0-9]{10}"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className="w-full rounded-xl border border-white/20 bg-black/30 px-4 py-3 text-white outline-none ring-gold/30 focus:ring"
@@ -119,7 +138,7 @@ export function ReservationSection() {
                   animate={{ opacity: 1, y: 0 }}
                   className="rounded-lg bg-gold/20 px-4 py-3 text-sm text-gold"
                 >
-                  Reservation request sent successfully for {guests} guests at {time}.
+                  Reservation request opened in WhatsApp for {guests} guests at {time}.
                 </motion.p>
               ) : null}
             </form>

@@ -1,15 +1,19 @@
 import Script from "next/script";
 import { HomePage } from "@/components/home-page";
+import { getSiteUrl } from "@/lib/site-url";
+import { getContactEmail, getContactPhoneDisplay } from "@/lib/site-config";
+
+const siteUrl = getSiteUrl();
 
 const restaurantSchema = {
   "@context": "https://schema.org",
   "@type": "Restaurant",
   name: "Filmy Food",
-  image: "https://filmyfood.com/og-image.jpg",
+  image: `${siteUrl}/og-image.jpg`,
   servesCuisine: ["Indian", "Chinese", "Italian", "Fusion"],
   priceRange: "₹₹₹₹",
-  telephone: "+91-99999-99999",
-  email: "hello@filmyfood.com",
+  telephone: getContactPhoneDisplay(),
+  email: getContactEmail(),
   address: {
     "@type": "PostalAddress",
     streetAddress: "Lower Parel",
@@ -34,7 +38,7 @@ const restaurantSchema = {
       closes: "00:00",
     },
   ],
-  url: "https://filmyfood.com",
+  url: siteUrl,
 };
 
 export default function Home() {

@@ -1,16 +1,14 @@
 const DEFAULT_SITE_URL = "https://filmyfood.com";
 
-export function getSiteUrl(): string {
-  const rawValue = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-
+export function normalizeAbsoluteUrl(rawValue?: string): string | null {
   if (!rawValue) {
-    return DEFAULT_SITE_URL;
+    return null;
   }
 
-  const sanitizedHost = rawValue.replace(/^\.+/, "").replace(/^\/+/, "");
+  const sanitizedHost = rawValue.trim().replace(/^\.+/, "").replace(/^\/+/, "");
 
   if (!sanitizedHost) {
-    return DEFAULT_SITE_URL;
+    return null;
   }
 
   const candidate = /^https?:\/\//i.test(sanitizedHost)
@@ -26,6 +24,10 @@ export function getSiteUrl(): string {
 
     return parsed.toString().replace(/\/$/, "");
   } catch {
-    return DEFAULT_SITE_URL;
+    return null;
   }
+}
+
+export function getSiteUrl(): string {
+  return normalizeAbsoluteUrl(process.env.NEXT_PUBLIC_SITE_URL) || DEFAULT_SITE_URL;
 }

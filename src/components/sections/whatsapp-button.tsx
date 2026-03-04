@@ -1,12 +1,12 @@
 import { FaWhatsapp } from "react-icons/fa";
+import { buildWhatsAppUrl } from "@/lib/site-config";
 
-const phone = "919999999999";
-const message = encodeURIComponent("Hi Filmy Food, I’d like to place an order.");
+const link = buildWhatsAppUrl("Hi Filmy Food, I’d like to place an order.");
 
 export function WhatsAppOrderButton() {
   return (
     <a
-      href={`https://wa.me/${phone}?text=${message}`}
+      href={link}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-5 left-5 z-50 inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-3 text-sm font-semibold text-black shadow-lg transition hover:scale-105"

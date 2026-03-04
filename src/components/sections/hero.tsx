@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 import { RippleButton } from "@/components/ui/ripple-button";
+import { buildWhatsAppUrl } from "@/lib/site-config";
 
 const Hero3D = dynamic(() => import("@/components/sections/hero-3d").then((m) => m.Hero3D), {
   ssr: false,
@@ -13,6 +14,7 @@ export function HeroSection() {
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, 220]);
   const [showThree, setShowThree] = useState(false);
+  const orderNowHref = buildWhatsAppUrl("Hi Filmy Food, I want to order now.");
 
   useEffect(() => {
     const timer = setTimeout(() => setShowThree(true), 500);
@@ -57,7 +59,7 @@ export function HeroSection() {
             <a href="#menu" aria-label="View menu section">
               <RippleButton variant="ghost">View Menu</RippleButton>
             </a>
-            <a href="https://wa.me/919999999999?text=Hi%20Filmy%20Food%2C%20I%20want%20to%20order%20now." target="_blank" rel="noopener noreferrer" aria-label="Order now on WhatsApp">
+            <a href={orderNowHref} target="_blank" rel="noopener noreferrer" aria-label="Order now on WhatsApp">
               <RippleButton variant="ghost">Order Now</RippleButton>
             </a>
           </div>

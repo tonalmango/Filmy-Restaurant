@@ -14,7 +14,7 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-black/50 backdrop-blur-xl">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
-        <a href="#" className="text-sm font-semibold uppercase tracking-[0.24em] text-white">
+        <a href="/" className="text-sm font-semibold uppercase tracking-[0.24em] text-white">
           Filmy Food
         </a>
 
