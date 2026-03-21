@@ -6,7 +6,7 @@ import { GlassCard } from "@/components/ui/glass-card";
 
 export function AboutSection() {
   return (
-    <section id="about" className="px-6 py-20 md:px-10">
+    <section id="about" className="px-6 py-8 sm:py-12 md:py-20 md:px-10">
       <div className="mx-auto max-w-7xl space-y-12">
         <SectionTitle
           eyebrow="About The Experience"

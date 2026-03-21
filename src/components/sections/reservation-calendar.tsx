@@ -11,12 +11,14 @@ type ReservationCalendarProps = {
 
 export function ReservationCalendar({ selected, onSelect, minDate }: ReservationCalendarProps) {
   return (
-    <DayPicker
-      mode="single"
-      selected={selected}
-      onSelect={onSelect}
-      disabled={{ before: minDate }}
-      className="mx-auto text-white"
-    />
+    <div className="w-full overflow-x-auto">
+      <DayPicker
+        mode="single"
+        selected={selected}
+        onSelect={onSelect}
+        disabled={{ before: minDate }}
+        className="mx-auto w-fit min-w-[280px] text-white"
+      />
+    </div>
   );
 }

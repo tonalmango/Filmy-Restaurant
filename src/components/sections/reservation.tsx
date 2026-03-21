@@ -58,7 +58,7 @@ export function ReservationSection() {
   };
 
   return (
-    <section id="reservation" className="px-6 py-20 md:px-10">
+    <section id="reservation" className="px-6 py-8 sm:py-12 md:py-20 md:px-10">
       <div className="mx-auto max-w-7xl space-y-10">
         <SectionTitle
           eyebrow="Reservation"

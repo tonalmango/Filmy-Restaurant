@@ -35,7 +35,7 @@ export function TestimonialsSection() {
   }, []);
 
   return (
-    <section id="testimonials" className="px-6 py-20 md:px-10">
+    <section id="testimonials" className="px-6 py-8 sm:py-12 md:py-20 md:px-10">
       <div className="mx-auto max-w-5xl space-y-10">
         <SectionTitle eyebrow="Testimonials" title="What Guests Say" />
 

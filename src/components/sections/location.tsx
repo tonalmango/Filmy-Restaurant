@@ -8,7 +8,7 @@ export function LocationSection() {
   const mapDirectionsUrl = getMapDirectionsUrl();
 
   return (
-    <section id="location" className="px-6 py-20 md:px-10">
+    <section id="location" className="px-6 py-8 sm:py-12 md:py-20 md:px-10">
       <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-2">
         <div className="space-y-6">
           <SectionTitle

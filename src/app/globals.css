@@ -8,12 +8,19 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
   @apply bg-background text-white antialiased;
   background-image: radial-gradient(circle at 15% 20%, rgba(212, 175, 55, 0.14), transparent 36%),
     radial-gradient(circle at 80% 75%, rgba(255, 255, 255, 0.06), transparent 30%);
+  overflow-x: hidden;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 h1,
@@ -36,6 +43,38 @@ label {
   --rdp-accent-color: #d4af37;
   --rdp-background-color: rgba(212, 175, 55, 0.25);
   margin: 0;
+}
+
+.rdp-months {
+  justify-content: center;
+}
+
+.rdp-month,
+.rdp-month_grid,
+.rdp-table {
+  max-width: 100%;
+}
+
+@media (max-width: 480px) {
+  .rdp {
+    font-size: 0.85rem;
+  }
+
+  .rdp-day {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .rdp {
+    font-size: 0.75rem;
+  }
+
+  .rdp-day {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
 }
 
 .rdp-day_selected,

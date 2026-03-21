@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
@@ -21,6 +21,11 @@ export const metadata: Metadata = {
   title: "Filmy Food | Where Cinema Meets Cuisine",
   description:
     "Filmy Food is a cinematic fine dining destination blending luxury ambiance, storytelling, and world-class cuisine.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   alternates: {
     canonical: "/",
   },
@@ -37,6 +42,12 @@ export const metadata: Metadata = {
     title: "Filmy Food | Where Cinema Meets Cuisine",
     description: "Ultra-premium cinematic fine dining experience.",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({

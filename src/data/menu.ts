@@ -62,7 +62,7 @@ export const menuItems: MenuItem[] = [
     category: "Indian",
     description: "Chef’s signature grill selection with smoked yogurt dip.",
     price: "₹1,490",
-    image: "https://images.unsplash.com/photo-1596797038530-2c107aa8e1fa?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=1200&auto=format&fit=crop",
     spice: "Hot",
   },
 ];

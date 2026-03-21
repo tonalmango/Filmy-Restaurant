@@ -86,7 +86,7 @@ function PlateOrb() {
 
 export function Hero3D() {
   return (
-    <div className="h-[320px] w-full md:h-[500px]">
+    <div className="h-full w-full">
       <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0, 5], fov: 45 }}>
         <ambientLight intensity={0.45} />
         <directionalLight position={[3, 3, 2]} intensity={1.5} color="#ffe0a6" />
